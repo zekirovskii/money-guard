@@ -1,0 +1,248 @@
+.header {
+  background: linear-gradient(90deg, #2E1746 3%,#2E225F 100%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Sol taraf - Logo ve uygulama adı */
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logoIcon {
+  width: 23px;
+  height: 22px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  margin-left: 54px;
+}
+
+.appName {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--font-secondary);
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+/* Sağ taraf - Kullanıcı bilgisi ve çıkış */
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.userName {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 8px;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.logoutButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.logoutIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.logoutButton:hover .logoutIcon {
+  transform: translateX(2px);
+}
+
+.logoutText {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Tablet Responsive Design (768x1024) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    height: 70px;
+  }
+  
+  .container {
+    padding: 0 16px;
+  }
+  
+  .logoIcon {
+    width: 20px;
+    height: 19px;
+    margin-left: 40px;
+  }
+  
+  .appName {
+    font-size: 16px;
+  }
+  
+  .userName {
+    font-size: 14px;
+  }
+  
+  .logoutText {
+    font-size: 14px;
+  }
+  
+  .logoutIcon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .separator {
+    height: 20px;
+    margin: 0 6px;
+  }
+  
+  .logoutButton {
+    padding: 6px 10px;
+  }
+}
+
+/* Mobile Responsive Design (320x568) */
+@media (max-width: 767px) {
+  .header {
+    height: 60px;
+    background: linear-gradient(90deg, #2E1746 3%,#2E225F 100%);
+  }
+  
+  .container {
+    padding: 0 12px;
+  }
+  
+  .logoIcon {
+    width: 17px;
+    height: 17px;
+    margin-left: 30px;
+  }
+  
+  .appName {
+    font-size: 14px;
+  }
+  
+  .userSection {
+    gap: 12px;
+  }
+  
+  .separator {
+    height: 18px;
+    margin: 0 4px;
+  }
+  
+  .logoutButton {
+    padding: 5px 8px;
+  }
+  
+  .userName {
+    font-size: 12px;
+  }
+  
+  .logoutText {
+    font-size: 12px;
+  }
+  
+  .logoutIcon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Small Mobile (320px width) */
+@media (max-width: 320px) {
+  .header {
+    height: 55px;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .logoIcon {
+    width: 15px;
+    height: 15px;
+    margin-left: 25px;
+  }
+  
+  .appName {
+    font-size: 12px;
+  }
+  
+  .userName {
+    font-size: 11px;
+  }
+  
+  .logoutText {
+    font-size: 11px;
+  }
+  
+  .logoutIcon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .separator {
+    height: 16px;
+    margin: 0 3px;
+  }
+  
+  .logoutButton {
+    padding: 4px 6px;
+  }
+}

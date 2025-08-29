@@ -18,7 +18,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: unset;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.2;
@@ -31,6 +31,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Mobile Responsive Design (320x568) */
+@media (max-width: 767px) {
+  .registerPage {
+    background:
+    radial-gradient(80% 60% at 100% 0%,  rgba(0, 0, 0, 0.6) 35%, rgba(0,0,0,0) 100%),
+    radial-gradient(80% 50% at 0% 100%, rgba(0, 0, 0, 0.6) 1%, rgba(0,0,0,0) 80%),
+    linear-gradient(15deg, #000000 0%, #5a2491 60%, #000000 100%);
+    padding: 0;
+  }
+  
+  .backgroundImage {
+    display: none;
+    width: 120%;
+    background-size:unset;
+  }
+  
+  .container {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+  }
 }
 
 /* Responsive design */

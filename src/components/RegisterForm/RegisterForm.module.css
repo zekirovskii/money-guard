@@ -1,12 +1,13 @@
 .authCard {
-  background: rgba(80, 61, 165, 0.6);
+  background: rgb(65 66 101 / 50%);
   backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 40px 30px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
   width: 533px;
-  height: 650px;
+  height: auto;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +15,7 @@
 
 .logoContainer {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .logo {
@@ -42,17 +43,25 @@
 }
 
 .formGroup {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   position: relative;
+  min-height: 65px;
+}
+
+/* Son form grubuna ekstra boşluk ekle */
+.formGroup:last-of-type {
+  margin-bottom: 35px;
 }
 
 .inputIcon {
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 15px;
   color: rgba(255, 255, 255, 0.7);
   z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 20px;
 }
 
 .icon {
@@ -69,6 +78,8 @@
   color: white;
   font-size: 16px;
   transition: all 0.3s ease;
+  height: 50px;
+  box-sizing: border-box;
 }
 
 .inputField::placeholder {
@@ -157,7 +168,7 @@
 /* Progress Bar Styles */
 .progressContainer {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .progressBar {
@@ -182,14 +193,14 @@
   display: block;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
+/* Tablet Responsive Design (768x1024) */
+@media (max-width: 1024px) and (min-width: 769px) {
   .authCard {
-    width: 90%;
+    width: 450px;
     height: auto;
-    min-height: 500px;
-    padding: 30px 20px;
-    margin: 20px;
+    min-height: 580px;
+    padding: 35px 25px;
+    background: rgb(65 66 101 / 50%);
   }
   
   .brandName {
@@ -202,12 +213,131 @@
   }
   
   .inputField {
-    font-size: 14px;
+    font-size: 15px;
   }
   
   .btn {
+    width: 280px;
+    height: 45px;
+    font-size: 15px;
+  }
+  
+  .formGroup {
+    min-height: 60px;
+  }
+  
+  .formGroup:last-of-type {
+    margin-bottom: 30px;
+  }
+  
+  .errorMessage {
+    font-size: 11px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
+
+/* Mobile Responsive Design (320x568) */
+@media (max-width: 767px) {
+  .authCard {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    padding: 40px 20px;
+    margin: 0;
+    background: rgb(65 66 101 / 50%);
+    backdrop-filter: blur(15px);
+    box-shadow: none;
+    border: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: auto;
+  }
+  
+  .brandName {
+    font-size: 22px;
+  }
+  
+  .logoIcon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .inputField {
     font-size: 14px;
-    padding: 12px;
+    height: 45px;
+  }
+  
+  .btn {
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .formGroup {
+    min-height: 55px;
+    margin-bottom: 20px;
+  }
+  
+  .formGroup:last-of-type {
+    margin-bottom: 25px;
+  }
+  
+  .errorMessage {
+    font-size: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: -18px;
+  }
+  
+  .logoContainer {
+    margin-bottom: 25px;
+  }
+  
+  .progressContainer {
+    margin-bottom: 12px;
+  }
+}
+
+/* Small Mobile (320px width) */
+@media (max-width: 320px) {
+  .authCard {
+    padding: 30px 15px;
+    background: rgb(65 66 101 / 50%);
+  }
+  
+  .brandName {
+    font-size: 20px;
+  }
+  
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .inputField {
+    font-size: 13px;
+    height: 40px;
+  }
+  
+  .btn {
+    height: 40px;
+    font-size: 13px;
+  }
+  
+  .formGroup {
+    min-height: 50px;
+    margin-bottom: 18px;
+  }
+  
+  .formGroup:last-of-type {
+    margin-bottom: 22px;
   }
 }
 
@@ -217,8 +347,15 @@
 
 .errorMessage {
   color: #ff6b6b;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 5px;
-  text-align: center;
+  text-align: left;
   display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 35px;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
 }
