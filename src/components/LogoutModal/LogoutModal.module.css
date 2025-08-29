@@ -4,7 +4,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
@@ -14,7 +13,7 @@
 }
 
 .modal {   
-  background: rgba(80, 61, 165, 0.6);
+  background: rgb(65 66 101 / 50%);
   backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 40px;
