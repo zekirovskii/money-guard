@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #1a1a2e 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Floating coins animation */
+.floating-coins {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.coin {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #8b4513;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+  animation: float 6s ease-in-out infinite;
+}
+
+.coin:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.coin:nth-child(2) {
+  top: 20%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.coin:nth-child(3) {
+  bottom: 30%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.coin:nth-child(4) {
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+.coin:nth-child(5) {
+  top: 50%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.coin:nth-child(6) {
+  top: 15%;
+  right: 25%;
+  animation-delay: 5s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
