@@ -272,7 +272,7 @@
 }
 
 /* Small Mobile (320px width) */
-@media (max-width: 320px) {
+@media (max-width: 767px) {
   .modal {
     top: 55px; /* Küçük mobilde header yüksekliği */
     height: calc(100vh - 55px);
