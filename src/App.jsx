@@ -7,11 +7,11 @@ import { useDispatch } from 'react-redux';
 import { checkAuthStatus } from './redux/auth/operations';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
-import MainPage from './pages/MainPage/MainPage';
 import PrivateRoutes from './routes/PrivateRoutes';
 import RestrictedRoutes from './routes/RestrictedRoutes';
 import { getTransactions } from "./redux/transactions/operations";
-import HomeTab from "./pages/HomeTab/HomeTab.jsx";
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import StatisticsPage from './pages/StatisticsPage/StatisticsPage';
 
 import './App.css';
 
@@ -44,13 +44,22 @@ function AppContent() {
               <RegisterPage />
             </RestrictedRoutes>
           } />
-          <Route path="/main" element={
+          <Route path="/dashboard" element={
             <PrivateRoutes>
-              <MainPage />
+              <DashboardPage />
             </PrivateRoutes>
           } />
-          <Route path="/home" element={ <PrivateRoutes> <HomeTab /> </PrivateRoutes> } />
-          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/home" element={ 
+            <PrivateRoutes> 
+              <DashboardPage /> 
+            </PrivateRoutes> 
+          } />
+          <Route path="/statistics" element={
+            <PrivateRoutes>
+              <StatisticsPage />
+            </PrivateRoutes>
+          } />
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </div>
     </Router>

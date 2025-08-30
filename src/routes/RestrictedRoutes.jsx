@@ -6,7 +6,7 @@ import { selectIsAuthenticated } from '../redux/auth/selectors';
 const RestrictedRoutes = ({ children }) => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
-  return isAuthenticated ? <Navigate to="/main" replace /> : children;
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : children;
 };
 
 export default RestrictedRoutes;
