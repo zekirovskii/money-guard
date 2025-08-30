@@ -10,15 +10,25 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import MainPage from './pages/MainPage/MainPage';
 import PrivateRoutes from './routes/PrivateRoutes';
 import RestrictedRoutes from './routes/RestrictedRoutes';
+import { getTransactions } from "./redux/transactions/operations";
+import HomeTab from "./pages/HomeTab/HomeTab.jsx";
+
 import './App.css';
 
 function AppContent() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Sayfa yüklendiğinde kullanıcı oturumunu kontrol et
-    dispatch(checkAuthStatus());
+    const init = async () => {
+      // ⿡ Sayfa yüklendiğinde kullanıcı oturumunu kontrol et
+      await dispatch(checkAuthStatus()).unwrap();
+
+      // ⿢ Token store'a geldiği için artık transactions çekilebilir
+      dispatch(getTransactions());
+    };
+    init();
   }, [dispatch]);
+
 
   return (
     <Router>
@@ -39,6 +49,7 @@ function AppContent() {
               <MainPage />
             </PrivateRoutes>
           } />
+          <Route path="/home" element={ <PrivateRoutes> <HomeTab /> </PrivateRoutes> } />
           <Route path="/" element={<Navigate to="/login" replace />} />
         </Routes>
       </div>
