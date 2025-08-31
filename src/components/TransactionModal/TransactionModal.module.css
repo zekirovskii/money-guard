@@ -1,0 +1,300 @@
+/* ---------- OVERLAY & CONTAINER ---------- */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 5, 25, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.233) 0%, 
+    rgba(248, 187, 243, 0.199) 25%, 
+    rgba(165, 160, 245, 0.103) 75%, 
+    rgba(255, 255, 255, 0.13) 100%
+  );
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.modalTitle { flex: 1; text-align: center; margin: 0; font-size: 20px; font-weight: 700; }
+
+.closeButton { background: transparent; border: 0; color: #fff; cursor: pointer; border-radius: 8px; padding: 6px; }
+.closeButton:hover { background: rgba(255,255,255,.12); }
+.closeIcon { width: 20px; height: 20px; }
+
+.form { display: flex; flex-direction: column; gap: 16px; }
+
+/* ---------- SWITCHER (tam senin istediğin görünüm) ---------- */
+.switcheWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.switcheWrapper span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  user-select: none;
+}
+
+.income { color: rgba(255, 182, 39, 1) !important; font-weight: 800; }
+.expense { color: rgba(255, 134, 141, 1) !important; font-weight: 800; }
+
+/* checkbox görünmez */
+.switchInput {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+/* track */
+.switchLabel {
+  width: 80px;
+  height: 40px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 1);
+  position: relative;
+  display: block;
+  cursor: pointer;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+              inset 0 -5px 15px rgba(255, 255, 255, 0.4);
+  transition: all 0.5s ease 0s;
+}
+
+/* knob (+) */
+.switchLabel::after {
+  content: '+';
+  color: rgba(255, 255, 255, 1);
+  width: 44px;
+  height: 44px;
+  border-radius: 44px;
+  position: absolute;
+  top: -2px;
+  left: -4px;
+  background-color: rgba(255, 182, 39, 1);
+  box-shadow: 0px 6px 15px 0px rgba(255, 199, 39, 0.5);
+  transition: all 0.5s ease 0s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+
+/* checked => EXPENSE (-) ve sağa kay */
+.switchInput:checked + .switchLabel::after {
+  content: '−';
+  font-size: 35px;
+  left: 84px;
+  transform: translateX(-100%);
+  background-color: rgba(255, 134, 141, 1);
+  box-shadow: 0px 6px 15px 0px rgba(255, 134, 141, 0.5);
+}
+
+/* tıklarken hafif genişlesin */
+.switchLabel:active::after { width: 65px; }
+
+/* ---------- FIELDS ---------- */
+.formGroup { display: flex; flex-direction: column; gap: 8px; }
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,.75);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.input, .select {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.28);
+  padding: 10px 0;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 0;
+  transition: border-color .2s ease;
+}
+.input::placeholder { color: rgba(255,255,255,.55); }
+.input:focus, .select:focus { outline: none; border-bottom-color: #ffd166; }
+.select { cursor: pointer; }
+.select option { background: #2b1a63; color: #fff; }
+
+/* ---------- BUTTONS ---------- */
+.buttonGroup { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+
+.addButton {
+  background: linear-gradient(45deg, #ffed4e, #cfb834, #c25579, #9c27b0);
+  background-size: 200% 200%;
+  border: 0;
+  color: #fff;
+  padding: 14px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.8s ease;
+  text-transform: uppercase;
+  animation: gradientShift 3s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.addButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.8s ease;
+}
+
+.addButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+  animation: gradientShift 1.5s ease infinite;
+}
+
+.addButton:hover::before {
+  left: 100%;
+}
+
+.addButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.cancelButton {
+  background: #fff;
+  color: #2b1a63;
+  border: 1px solid rgba(255,255,255,.18);
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: transform .15s ease, background-color .2s ease;
+}
+.cancelButton:hover { background: #f2f2f7; transform: translateY(-1px); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .modal { width: 95%; padding: 20px; }
+  .row { grid-template-columns: 1fr; }
+}
+
+/* EditTransactionModal için özel tasarım - Income / Expense yan yana */
+.editTypeDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.editTypeText {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.editTypeText.active {
+  color: #fbbf24; /* Sarı renk - Income için */
+}
+
+.editTypeText:not(.active) {
+  color: white; /* Beyaz renk - pasif için */
+}
+
+/* Expense seçiliyse kırmızı yap */
+.editTypeText.active.expenseType {
+  color: #ef4444; /* Kırmızı renk - Expense için */
+}
+
+.editTypeSeparator {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0.25rem;
+}
+
+.saveButton {
+  background: linear-gradient(45deg, #ffed4e, #cfb834, #c25579, #9c27b0);
+  background-size: 200% 200%;
+  border: 0;
+  color: #fff;
+  padding: 14px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.8s ease;
+  text-transform: uppercase;
+  animation: gradientShift 3s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.saveButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.8s ease;
+}
+
+.saveButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+  animation: gradientShift 1.5s ease infinite;
+}
+
+.saveButton:hover::before {
+  left: 100%;
+}
+
+.saveButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}

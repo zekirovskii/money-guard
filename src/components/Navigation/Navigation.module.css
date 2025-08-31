@@ -1,0 +1,93 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.navItem.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+.iconContainer {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  background: transparent;
+}
+
+.navIcon {
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
+}
+
+/* Normal durumda SVG rengi */
+.navIcon {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+/* Hover ve aktif durumda SVG rengi - #800080 */
+.navItem:hover .navIcon,
+.navItem.active .navIcon {
+  filter: brightness(0) saturate(100%) invert(12%) sepia(94%) saturate(6500%) hue-rotate(270deg) brightness(95%) contrast(105%);
+}
+/* Sadece chat icon için patlıcan moru arka plan */
+.navItem:hover .iconContainer.chatIcon,
+.navItem.active .iconContainer.chatIcon {
+  background: #800080; /* canlı patlıcan moru */
+}
+
+.navLabel {
+  font-size: 1rem;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .navigation {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem 0;
+  }
+  
+  .navItem {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .navLabel {
+    font-size: 0.875rem;
+  }
+}

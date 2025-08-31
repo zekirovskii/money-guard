@@ -1,5 +1,5 @@
 .authCard {
-  background: rgba(80, 61, 165, 0.6);
+  background: rgb(65 66 101 / 50%);
   backdrop-filter: blur(25px);
   border-radius: 20px;
   padding: 40px 30px;
@@ -14,7 +14,7 @@
 
 .logoContainer {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .logo {
@@ -45,18 +45,21 @@
 }
 
 .formGroup {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   position: relative;
   width: 100%;
+  min-height: 65px;
 }
 
 .inputIcon {
   position: absolute;
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 15px;
   color: rgba(255, 255, 255, 0.7);
   z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 20px;
 }
 
 .icon {
@@ -73,6 +76,8 @@
   color: white;
   font-size: 16px;
   transition: all 0.3s ease;
+  height: 50px;
+  box-sizing: border-box;
 }
 
 .inputField::placeholder {
@@ -171,6 +176,34 @@
   cursor: not-allowed;
 }
 
+/* Progress Bar Styles */
+.progressContainer {
+  width: 100%;
+  margin-bottom: 15px; /* Biraz azalttım */
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(45deg, #ff6b35, #e91e63);
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  text-align: center;
+  display: block;
+}
+
 /* Responsive design */
 @media (max-width: 600px) {
   .authCard {
@@ -199,6 +232,17 @@
     height: 45px;
     font-size: 14px;
   }
+  
+  .formGroup {
+    min-height: 60px;
+  }
+  
+  .errorMessage {
+    font-size: 11px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
 }
 
 .error {
@@ -207,8 +251,141 @@
 
 .errorMessage {
   color: #ff6b6b;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 5px;
-  text-align: center;
+  text-align: left;
   display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 35px;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Tablet Responsive Design (768x1024) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .authCard {
+    width: 450px;
+    height: 520px;
+    padding: 35px 25px;
+    background: rgb(65 66 101 / 50%);
+
+  }
+  
+  .brandName {
+    font-size: 24px;
+  }
+  
+  .logoIcon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .inputField {
+    font-size: 15px;
+  }
+  
+  .btn {
+    width: 280px;
+    height: 45px;
+    font-size: 15px;
+  }
+  
+  .formGroup {
+    min-height: 60px;
+  }
+  
+  .errorMessage {
+    font-size: 11px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
+
+/* Mobile Responsive Design (320x568) */
+@media (max-width: 767px) {
+  .authCard {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    padding: 40px 20px;
+    margin: 0;
+    background: rgb(65 66 101 / 50%);
+
+    backdrop-filter: blur(15px);
+    box-shadow: none;
+    border: none;
+  }
+  
+  .brandName {
+    font-size: 22px;
+  }
+  
+  .logoIcon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .inputField {
+    font-size: 14px;
+    height: 45px;
+  }
+  
+  .btn {
+    width: 100%;
+    height: 45px;
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+  
+  .formGroup {
+    min-height: 55px;
+    margin-bottom: 20px;
+  }
+  
+  .errorMessage {
+    font-size: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: -18px;
+  }
+  
+  .logoContainer {
+    margin-bottom: 25px;
+  }
+}
+
+/* Small Mobile (320px width) */
+@media (max-width: 320px) {
+  .authCard {
+    padding: 30px 15px;
+  }
+  
+  .brandName {
+    font-size: 20px;
+  }
+  
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .inputField {
+    font-size: 13px;
+    height: 40px;
+  }
+  
+  .btn {
+    height: 40px;
+    font-size: 13px;
+  }
+  
+  .formGroup {
+    min-height: 50px;
+    margin-bottom: 18px;
+  }
 }

@@ -38,7 +38,7 @@ const RegisterForm = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/main');
+      navigate('/home');
     }
   }, [isAuthenticated, navigate]);
 
