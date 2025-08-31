@@ -20,13 +20,26 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
     if (transaction) {
       setFormData({
         type: transaction.type || 'INCOME',
-        category: transaction.categoryId || '',  // Backend'den gelen "categoryId"
-        amount: transaction.amount || '',
-        date: transaction.transactionDate || new Date().toISOString().split('T')[0],  // Backend'den gelen "transactionDate"
+        category: transaction.categoryId || '',
+        amount: Math.abs(transaction.amount || 0), // Mutlak değer olarak göster
+        date: transaction.transactionDate || new Date().toISOString().split('T')[0],
         comment: transaction.comment || ''
       });
     }
   }, [transaction]);
+
+  // INCOME için otomatik category ata
+  useEffect(() => {
+    if (formData.type === 'INCOME') {
+      const incomeCategory = categories?.find(cat => cat.type === 'INCOME');
+      if (incomeCategory) {
+        setFormData(prev => ({
+          ...prev,
+          category: incomeCategory.id
+        }));
+      }
+    }
+  }, [formData.type, categories]);
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -44,14 +57,19 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
     }
 
     try {
-      // Backend API'sine uygun format
+      // Amount'u transaction tipine göre ayarla
+      const baseAmount = Number(formData.amount);
+      const amount = formData.type === 'EXPENSE' ? -baseAmount : baseAmount;
+      
       const transactionData = {
         transactionDate: formData.date,
         type: formData.type,
         categoryId: formData.category,
         comment: formData.comment,
-        amount: parseFloat(formData.amount)
+        amount: amount // EXPENSE için negatif, INCOME için pozitif
       };
+
+      console.log('Edit transaction data:', transactionData);
 
       await dispatch(editTransaction({
         id: transaction.id,
@@ -80,41 +98,42 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
-          {/* Transaction Type Toggle */}
-          <div className={styles.typeToggle}>
-            <button
-              type="button"
-              className={`${styles.toggleOption} ${formData.type === 'INCOME' ? styles.active : ''}`}
-              onClick={() => handleInputChange('type', 'INCOME')}
-            >
-              Income
-            </button>
-            <button
-              type="button"
-              className={`${styles.toggleOption} ${formData.type === 'EXPENSE' ? styles.active : ''}`}
-              onClick={() => handleInputChange('type', 'EXPENSE')}
-            >
-              Expense
-            </button>
+          {/* Transaction Type Display - Income / Expense yan yana */}
+          <div className={styles.formGroup}>
+            <label className={styles.label}>Transaction Type</label>
+            <div className={styles.editTypeDisplay}>
+              <span className={`${styles.editTypeText} ${transaction.type === 'INCOME' ? styles.active : ''}`}>
+                Income
+              </span>
+              <span className={styles.editTypeSeparator}>/</span>
+              <span className={`${styles.editTypeText} ${transaction.type === 'EXPENSE' ? styles.active : ''} ${transaction.type === 'EXPENSE' ? styles.expenseType : ''}`}>
+                Expense
+              </span>
+            </div>
           </div>
 
-          {/* Category Selection */}
-          <div className={styles.formGroup}>
-            <label className={styles.label}>Select a category</label>
-            <select
-              value={formData.category}
-              onChange={(e) => handleInputChange('category', e.target.value)}
-              className={styles.select}
-              required
-            >
-              <option value="">Select a category</option>
-              {categories && categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
-          </div>
+          {/* Category Selection - Sadece EXPENSE için göster, AddTransactionModal'daki gibi */}
+          {transaction.type === 'EXPENSE' && (
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Select a category</label>
+              <select
+                value={formData.category}
+                onChange={(e) => handleInputChange('category', e.target.value)}
+                className={styles.select}
+                required
+              >
+                <option value="">Select a category</option>
+                {categories && categories
+                  .filter(cat => cat.type === 'EXPENSE')
+                  .map((category) => (
+                    <option key={category.id} value={category.id}>
+                      {category.name}
+                    </option>
+                  ))
+                }
+              </select>
+            </div>
+          )}
 
           {/* Amount and Date Row */}
           <div className={styles.row}>
@@ -126,7 +145,7 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
                 onChange={(e) => handleInputChange('amount', e.target.value)}
                 className={styles.input}
                 step="0.01"
-                min="0"
+                min="0" // Negatif değer girişine izin verme
                 required
               />
             </div>
