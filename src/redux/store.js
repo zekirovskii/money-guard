@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/slice.js';
+import transactionsReducer from './transactions/slice.js';
+import monobankReducer from './monobank/slice.js';
 
 const persistConfig = {
   key: 'root',
@@ -14,6 +16,8 @@ const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
+    transactions: transactionsReducer,
+    monobank: monobankReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

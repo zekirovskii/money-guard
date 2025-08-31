@@ -1,0 +1,409 @@
+.dashboard {
+  min-height: 100vh;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background SVG Elements */
+.ellipse14 {
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 1539px;
+  height: 1545px;
+  z-index: 0;
+}
+
+.ellipse16 {
+    position: absolute;
+    bottom: -300px;
+    left: 400px;
+    width: 1693px;
+    height: 1701px;
+    z-index: 0;
+}
+
+.ellipse18 {
+    position: absolute;
+    top: 1000px;
+    left: 1500px;
+    transform: translate(-50%, -50%);
+    width: 1100px;
+    height: 933px;
+    z-index: 0;
+}
+
+.ellipse19 {
+    position: absolute;
+    right: 400px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+  
+}
+.ellipse20 {
+    position: absolute;
+    top: 700px;
+    left: 100px;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 500px;
+    z-index: 0;
+  
+}
+
+.mainContainer {
+  display: flex;
+  min-height: calc(100vh - 80px); /* Header yüksekliğini çıkar */
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 480px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 1rem; /* Padding'i azalt */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Elemanlar arası boşluk */
+  position: relative;
+  z-index: 2;
+}
+
+.balanceSection {
+  background: rgba(255, 255, 255, 0.08); /* Balance için background */
+  border-radius: 12px; /* Köşeleri yuvarla */
+  padding: 1.5rem; /* İç padding */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* İnce kenarlık */
+  margin-bottom: 0;
+}
+
+.balanceTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.balanceAmount {
+  font-size: 2.5rem; /* Biraz daha büyük */
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0;
+}
+
+.currencySection {
+  margin-top: 60px;
+  height: 430px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.currencyTable {
+  background: rgba(255, 255, 255, 0.05); /* Tablo için hafif background */
+  border-radius: 12px; /* Köşeleri yuvarla */
+  overflow: hidden;
+  margin-bottom: 1rem; /* Grafik ile arasında boşluk */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* İnce kenarlık */
+  flex-shrink: 0; /* Boyutunu koru */
+}
+
+.currencyHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem; /* Padding artır */
+  background: rgba(255, 255, 255, 0.08); /* Header için background */
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #a0a0a0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.currencyRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem; /* Padding artır */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.875rem;
+  color: white;
+  background: none;
+}
+
+.currencyRow:last-child {
+  border-bottom: none;
+}
+
+.graphContainer {
+  position: relative;
+  height: 281px; /* Grafik yüksekliğini artır */
+  background: rgba(255, 255, 255, 0.05); /* Grafik için hafif background */
+  border-radius: 12px; /* Köşeleri yuvarla */
+  overflow: hidden;
+  margin-top: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* İnce kenarlık */
+  flex: 1; /* Kalan alanı kapla */
+}
+
+.graphLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f59e0b 0%, #ec4899 100%);
+  transform: translateY(-50%);
+}
+
+.graphLine::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(245, 158, 11, 0.2) 0%, transparent 100%);
+}
+
+.graphPoints {
+  position: relative;
+  height: 100%;
+}
+
+.graphPoint {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: #f59e0b;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.graphPoint span {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Main Content Styles */
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.transactionsContainer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transactionsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.transactionsTable {
+  width: 100%;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #a0a0a0;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1fr 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: center;
+  font-size: 0.875rem;
+  color: white;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.date {
+  color: #a0a0a0;
+}
+
+.type {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.income {
+  color: #10b981;
+}
+
+.expense {
+  color: #ef4444;
+}
+
+.category {
+  color: white;
+  font-weight: 500;
+}
+
+.comment {
+  color: #d1d5db;
+}
+
+.sum {
+  font-weight: 600;
+  color: white;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  color: #a0a0a0;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.editButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.editIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.deleteButton {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deleteButton:hover {
+  background: #d97706;
+  transform: translateY(-1px);
+}
+
+/* Floating Action Button */
+.fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.fab:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(236, 72, 153, 0.4);
+}
+
+.fabIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 400px;
+    padding: 1.5rem 1rem;
+  }
+  
+  .mainContent {
+    padding: 1.5rem;
+  }
+  
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 0.5fr 1fr 1.5fr 1fr 0.8fr;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    order: 2;
+  }
+  
+  .mainContent {
+    order: 1;
+    padding: 1rem;
+  }
+  
+  .transactionsContainer {
+    padding: 1rem;
+  }
+  
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 0.5fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+  
+  .comment,
+  .actions {
+    display: none;
+  }
+}
