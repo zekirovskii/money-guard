@@ -239,6 +239,9 @@
   letter-spacing: 0.5px;
   color: #a0a0a0;
 }
+.tableEmptyWrap {
+  padding: 16px;
+}
 
 .tableRow {
   display: grid;
@@ -284,6 +287,16 @@
 .sum {
   font-weight: 600;
   color: white;
+  font-size: 0.875rem;
+}
+
+/* Pozitif ve negatif sayılar için renk kodlaması - resimdeki gibi */
+.sum.positive {
+  color: #fbbf24; /* Sarı renk - pozitif değerler (Income) için */
+}
+
+.sum.negative {
+  color: #ef4444; /* Kırmızı renk - negatif değerler (Expense) için */
 }
 
 .actions {
@@ -313,20 +326,60 @@
 }
 
 .deleteButton {
-  background: #f59e0b;
+  background: linear-gradient(45deg, #e9d30a, #cf2711, #d311c9, #581c87);
+  background-size: 200% 200%;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-radius: 25px;
   font-size: 0.75rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.8s ease;
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+  position: relative;
+  overflow: hidden;
+  animation: gradientShift 3s ease infinite;
+}
+
+.deleteButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.8s ease;
 }
 
 .deleteButton:hover {
-  background: #d97706;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+  animation: gradientShift 1.5s ease infinite;
+}
+
+.deleteButton:hover::before {
+  left: 100%;
+}
+
+.deleteButton:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Floating Action Button */
@@ -355,8 +408,13 @@
 }
 
 .fabIcon {
-  width: 24px;
-  height: 24px;
+  font-size: 32px; /* + işaretinin boyutu */
+  line-height: 1; /* Dikey hizalama */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* Responsive Design */
@@ -406,4 +464,28 @@
   .actions {
     display: none;
   }
+}
+
+.balanceTrend {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.trendIndicator {
+  font-size: 0.75rem;
+  color: #a0a0a0;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.debugInfo {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #666;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
 }
