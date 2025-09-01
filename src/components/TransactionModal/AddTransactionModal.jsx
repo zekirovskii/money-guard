@@ -51,6 +51,11 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
       return;
     }
 
+    if (formData.type === "INCOME" && !formData.category) {
+      alert("INCOME kategorisi bulunamadı. Lütfen sayfayı yenileyin.");
+      return;
+    }
+
     try {
       const payload = {
         transactionDate: formData.date,
@@ -60,9 +65,11 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
         amount: formData.type === "EXPENSE" ? -n : n,
       };
 
+      console.log('Gönderilen payload:', payload);
+
       await dispatch(addTransaction(payload)).unwrap();
 
-      // Form'u sıfırla - Income için category'yi de otomatik seç
+      // Form'u sıfırla
       const resetFormData = {
         type: "INCOME",
         amount: "",
@@ -83,7 +90,7 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
       setFormData(resetFormData);
       onClose?.();
     } catch (err) {
-      console.error(err);
+      console.error('Add transaction error:', err);
       alert(err?.message || "İşlem eklenirken hata oluştu.");
     }
   };
