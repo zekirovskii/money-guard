@@ -47,10 +47,9 @@ export const addTransaction = createAsyncThunk(
     'transactions/addTransaction',
     async (transaction, { rejectWithValue }) => {
         try {
-            // Debug için console.log ekle
             console.log('Gönderilen transaction data:', transaction);
             
-            // Validation ekle
+            // Validation
             if (!transaction.transactionDate || !transaction.type || !transaction.categoryId || !transaction.amount) {
                 return rejectWithValue('Tüm alanlar zorunludur');
             }
@@ -59,19 +58,9 @@ export const addTransaction = createAsyncThunk(
                 return rejectWithValue('Geçersiz transaction tipi');
             }
             
-            // Amount validation'ı güncelle
-            if (transaction.type === 'EXPENSE' && transaction.amount >= 0) {
-                return rejectWithValue('Gider miktarı negatif olmalıdır');
-            }
-            
-            if (transaction.type === 'INCOME' && transaction.amount <= 0) {
-                return rejectWithValue('Gelir miktarı pozitif olmalıdır');
-            }
-
             const response = await api.post('/transactions', transaction);
             return response.data;
         } catch (error) {
-            // Debug için detaylı hata bilgisi
             console.error('API Error Details:', {
                 status: error.response?.status,
                 data: error.response?.data,
@@ -84,7 +73,6 @@ export const addTransaction = createAsyncThunk(
             } else if (error.response?.status === 404) {
                 return rejectWithValue('Kategori bulunamadı');
             } else if (error.response?.status === 400) {
-                // 400 hatasında backend'den gelen detaylı mesajı kullan
                 const errorMessage = error.response?.data?.message || 'Geçersiz veri formatı';
                 return rejectWithValue(`400 Hatası: ${errorMessage}`);
             } else {
