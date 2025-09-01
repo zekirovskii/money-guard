@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../redux/auth/selectors';
 import {
@@ -6,7 +6,7 @@ import {
   selectTotalBalance,
   selectTransactionCategories,
 } from '../../redux/transactions/selectors';
-import { deleteTransaction } from '../../redux/transactions/operations';
+import { deleteTransaction, getTransactions } from '../../redux/transactions/operations';
 
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
@@ -28,6 +28,11 @@ const DashboardPage = () => {
   const transactions = useSelector(selectTransactions);
   const totalBalance = useSelector(selectTotalBalance);
   const categories = useSelector(selectTransactionCategories);
+
+  // Category'leri yükle
+  useEffect(() => {
+    dispatch(getTransactions());
+  }, [dispatch]);
 
   // Category ID -> Name
   const getCategoryName = (categoryId) => {
