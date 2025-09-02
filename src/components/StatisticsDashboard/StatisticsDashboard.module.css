@@ -5,28 +5,19 @@
 
 /* Header with Filters */
 .dashboardHeader {
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-bottom: 20px;
 }
 
-/* Filtreleri sayfanın en sağına taşı */
 .filters {
   display: flex;
-  gap: 15px;
-  margin-top: 90px;
-  margin-right: 220px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 10;
+  gap: 20px;
+  justify-content: stretch;
 }
 
 .monthFilter,
 .yearFilter {
-  width: 365px;
-  background: #4A56E21A;
+  width: 100%;
+  background: #4a56e21a;
   border: 1px solid rgba(251, 251, 251, 0.546);
   border-radius: 12px;
   padding: 15px 20px;
@@ -51,7 +42,7 @@
 .monthFilter:focus,
 .yearFilter:focus {
   outline: none;
-  border-color: #4A56E2;
+  border-color: #4a56e2;
   box-shadow: 0 0 0 3px rgba(74, 86, 226, 0.3);
 }
 
@@ -105,14 +96,10 @@
 /* Expense Details Section - Sağ taraf */
 .expenseDetailsSection {
   flex: 1;
-  padding: 20px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   max-width: 100%;
-  max-height: 500px;
-  overflow-y: auto;
-  text-align: center;
-
 }
 
 .transactionListTitle {
@@ -169,7 +156,7 @@
 .summaryTotals {
   margin-top: 20px;
   padding-top: 20px;
-  
+
   margin-bottom: 30px;
 }
 
@@ -249,7 +236,7 @@
 }
 
 .category {
-  color: #e2e8f0 ;
+  color: #e2e8f0;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -266,8 +253,8 @@
 }
 
 .comment {
-  color: #a0a0a0 ;
-  font-size: 13px ;
+  color: #a0a0a0;
+  font-size: 13px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -278,7 +265,7 @@
 }
 
 .amount.expense {
-  color: #f87171 ;
+  color: #f87171;
 }
 
 .noTransactions {
@@ -293,22 +280,22 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .dashboardContent {
     flex-direction: column;
     gap: 30px;
     align-items: center;
   }
-  
+
   .chartContainer {
     width: 300px;
     height: 300px;
   }
-  
+
   .balanceText {
     font-size: 1.2rem;
   }
-  
+
   .expenseDetailsSection {
     width: 100%;
     max-height: none;
@@ -317,19 +304,19 @@
 
 @media (max-width: 768px) {
   .filters {
-    justify-content: center;
-    position: static;
+    flex-direction: column;
+    gap: 15px;
   }
-  
+
   .chartContainer {
     width: 250px;
     height: 250px;
   }
-  
+
   .balanceText {
     font-size: 1rem;
   }
-  
+
   .monthFilter,
   .yearFilter {
     min-width: 100px;
@@ -347,13 +334,13 @@
     gap: 10px;
     padding: 10px;
   }
-  
+
   .tableHeader span,
   .tableRow span {
     font-size: 12px;
   }
-  
+
   .comment {
-    font-size: 11px ;
+    font-size: 11px;
   }
 }
