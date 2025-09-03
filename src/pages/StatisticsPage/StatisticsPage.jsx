@@ -5,6 +5,7 @@ import { selectTotalBalance } from '../../redux/transactions/selectors';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
 import Currency from '../../components/Currency/Currency';
+import StatisticsDashboard from '../../components/StatisticsDashboard/StatisticsDashboard';
 import styles from './StatisticsPage.module.css';
 import ellipse14 from '../../assets/Ellipse14.svg';
 import ellipse16 from '../../assets/Ellipse16.svg';
@@ -45,8 +46,8 @@ const StatisticsPage = () => {
         {/* Main Content */}
         <main className={styles.mainContent}>
           <div className={styles.content}>
-            <h1>Statistics Page</h1>
-            <p>Bu sayfa yakında doldurulacak...</p>
+            <h1 className={styles.pageTitle}>Statistics</h1>
+            <StatisticsDashboard />
           </div>
         </main>
       </div>

@@ -1,0 +1,346 @@
+.statisticsDashboard {
+  padding: 20px;
+  color: white;
+}
+
+/* Header with Filters */
+.dashboardHeader {
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  justify-content: stretch;
+}
+
+.monthFilter,
+.yearFilter {
+  width: 100%;
+  background: #4a56e21a;
+  border: 1px solid rgba(251, 251, 251, 0.546);
+  border-radius: 12px;
+  padding: 15px 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  min-width: 120px;
+  height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.monthFilter:hover,
+.yearFilter:hover {
+  background: rgba(74, 86, 226, 0.3);
+  border-color: rgba(251, 251, 251, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.monthFilter:focus,
+.yearFilter:focus {
+  outline: none;
+  border-color: #4a56e2;
+  box-shadow: 0 0 0 3px rgba(74, 86, 226, 0.3);
+}
+
+.monthFilter option,
+.yearFilter option {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Main Content Layout */
+.dashboardContent {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* Chart Section */
+.chartSection {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chartContainer {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chartCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.balanceText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Expense Details Section - Sağ taraf */
+.expenseDetailsSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100%;
+}
+
+.transactionListTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Categories List */
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.categoryItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.categoryColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.categoryInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.categoryName {
+  font-weight: 600;
+  font-size: 14px;
+  color: #e2e8f0;
+}
+
+.categoryAmount {
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+/* Summary Totals */
+.summaryTotals {
+  margin-top: 20px;
+  padding-top: 20px;
+
+  margin-bottom: 30px;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.summaryLabel {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.summaryValue {
+  font-weight: 700;
+  font-size: 16px;
+  color: #f87171;
+}
+
+.summaryValue.income {
+  color: #ff9f40;
+}
+
+/* Transaction Table Section */
+.transactionTableSection {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tableTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.transactionsTable {
+  width: 100%;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  gap: 65px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  gap: 15px;
+  padding: 12px 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tableRow span {
+  color: white;
+  font-size: 14px;
+}
+
+.category {
+  color: #e2e8f0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.categoryColorBox {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.comment {
+  color: #a0a0a0;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.amount {
+  font-weight: 600;
+}
+
+.amount.expense {
+  color: #f87171;
+}
+
+.noTransactions {
+  text-align: center;
+  padding: 40px 20px;
+  color: #a0a0a0;
+}
+
+.noTransactions p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .dashboardContent {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .chartContainer {
+    width: 300px;
+    height: 300px;
+  }
+
+  .balanceText {
+    font-size: 1.2rem;
+  }
+
+  .expenseDetailsSection {
+    width: 100%;
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .chartContainer {
+    width: 250px;
+    height: 250px;
+  }
+
+  .balanceText {
+    font-size: 1rem;
+  }
+
+  .monthFilter,
+  .yearFilter {
+    min-width: 100px;
+    height: 45px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Responsive for transaction table */
+@media (max-width: 768px) {
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 1fr 1.5fr 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .tableHeader span,
+  .tableRow span {
+    font-size: 12px;
+  }
+
+  .comment {
+    font-size: 11px;
+  }
+}

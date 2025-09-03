@@ -16,40 +16,40 @@
 }
 
 .ellipse16 {
-    position: absolute;
-    bottom: -300px;
-    left: 400px;
-    width: 1693px;
-    height: 1701px;
-    z-index: 0;
+  position: absolute;
+  bottom: -300px;
+  left: 400px;
+  width: 1693px;
+  height: 1701px;
+  z-index: 0;
 }
 
 .ellipse18 {
-    position: absolute;
-    top: 1000px;
-    left: 1500px;
-    transform: translate(-50%, -50%);
-    width: 1100px;
-    height: 933px;
-    z-index: 0;
+  position: absolute;
+  top: 1000px;
+  left: 1500px;
+  transform: translate(-50%, -50%);
+  width: 1100px;
+  height: 933px;
+  z-index: 0;
 }
 
 .ellipse19 {
-    position: absolute;
-    right: 400px;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
+  position: absolute;
+  right: 400px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
 }
 
 .ellipse20 {
-    position: absolute;
-    top: 700px;
-    left: 100px;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 500px;
-    z-index: 0;
+  position: absolute;
+  top: 700px;
+  left: 100px;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 500px;
+  z-index: 0;
 }
 
 .mainContainer {
@@ -96,6 +96,17 @@
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   margin-bottom: 0;
+}
+
+/* Page Title */
+.pageTitle {
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .currencySection {
@@ -165,10 +176,10 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   color: white;
-  text-align: center;
+  text-align: left;
 }
 
 .content h1 {
@@ -186,10 +197,33 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+  }
+
+  .mainContent {
+    padding: 1rem;
+  }
+
+  .balanceAmount {
+    font-size: 2rem;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
   .content {
     padding: 1rem;
   }
-  
+
   .content h1 {
     font-size: 1.5rem;
   }
