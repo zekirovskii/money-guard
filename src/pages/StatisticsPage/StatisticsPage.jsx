@@ -36,7 +36,7 @@ const StatisticsPage = () => {
           {/* Balance Section */}
           <div className={styles.balanceSection}>
             <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
-            <div className={styles.balanceAmount}>₴ {totalBalance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
+            <div className={styles.balanceAmount}>₴ {totalBalance}</div>
           </div>
           
           {/* Currency Component - API'den veri çekiyor */}
