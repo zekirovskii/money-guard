@@ -1,5 +1,4 @@
 .currencySection {
-    margin-top: 60px;
     display: flex;
     flex-direction: column;
   }
@@ -79,7 +78,16 @@
     color: #ef4444;
     padding: 1rem;
   }
-  
+  @media (max-width: 1024px) and (min-width: 768px) {
+    .currencySection {
+      margin-top: 0px;
+    }
+    .currencyTable {
+      margin-bottom: 10px;
+    }
+  }
+
+
   /* Responsive */
   @media (max-width: 768px) {
     .currencyHeader {

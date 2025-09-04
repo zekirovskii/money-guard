@@ -91,3 +91,13 @@
     font-size: 0.875rem;
   }
 }
+
+@media (max-width: 1024px) and (min-width: 768px) {
+
+  .navigation {
+    flex-direction: column;
+  }
+
+  .navItem {flex-direction: row;
+  }
+}
