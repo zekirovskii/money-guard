@@ -61,11 +61,8 @@
 .navItem.active .navIcon {
   filter: brightness(0) saturate(100%) invert(12%) sepia(94%) saturate(6500%) hue-rotate(270deg) brightness(95%) contrast(105%);
 }
-/* Sadece chat icon için patlıcan moru arka plan */
-.navItem:hover .iconContainer.chatIcon,
-.navItem.active .iconContainer.chatIcon {
-  background: #800080; /* canlı patlıcan moru */
-}
+
+
 
 .navLabel {
   font-size: 1rem;
@@ -90,14 +87,31 @@
   .navLabel {
     font-size: 0.875rem;
   }
+
+  /* Mobile'da currency navigation'ı göster */
+  .mobileOnly {
+    display: flex;
+  }
+}
+
+/* Desktop ve tablet'te currency navigation'ı gizle */
+@media (min-width: 769px) {
+  .mobileOnly {
+    display: none;
+  }
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {
-
   .navigation {
     flex-direction: column;
   }
 
-  .navItem {flex-direction: row;
+  .navItem {
+    flex-direction: row;
+  }
+
+  /* Tablet'te de currency navigation'ı gizle */
+  .mobileOnly {
+    display: none;
   }
 }

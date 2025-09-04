@@ -12,6 +12,7 @@ import RestrictedRoutes from './routes/RestrictedRoutes';
 import { getTransactions } from "./redux/transactions/operations";
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import StatisticsPage from './pages/StatisticsPage/StatisticsPage';
+import CurrencyPage from './pages/CurrencyPage/CurrencyPage';
 
 import './App.css';
 
@@ -57,6 +58,11 @@ function AppContent() {
           <Route path="/statistics" element={
             <PrivateRoutes>
               <StatisticsPage />
+            </PrivateRoutes>
+          } />
+          <Route path="/currency" element={
+            <PrivateRoutes>
+              <CurrencyPage />
             </PrivateRoutes>
           } />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
