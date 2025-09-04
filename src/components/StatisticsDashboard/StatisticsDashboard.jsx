@@ -191,9 +191,7 @@ const StatisticsDashboard = () => {
             <div className={styles.chartCenter}>
               <div className={styles.balanceText}>
                 ₹{" "}
-                {statistics.balance.toLocaleString("en-IN", {
-                  minimumFractionDigits: 2,
-                })}
+                {statistics.balance}
               </div>
             </div>
           </div>
@@ -268,7 +266,7 @@ const StatisticsDashboard = () => {
                     <span className={`${styles.amount} ${styles.expense}`}>
                       ₹
                       {Math.abs(transaction.amount).toLocaleString("en-IN", {
-                        minimumFractionDigits: 2,
+                        minimumFractionDigits: 0,
                       })}
                     </span>
                   </div>
@@ -290,7 +288,7 @@ const StatisticsDashboard = () => {
               <span className={styles.summaryValue}>
                 ₹
                 {statistics.totalExpense.toLocaleString("en-IN", {
-                  minimumFractionDigits: 2,
+                  minimumFractionDigits: 0,
                 })}
               </span>
             </div>
@@ -299,7 +297,7 @@ const StatisticsDashboard = () => {
               <span className={`${styles.summaryValue} ${styles.income}`}>
                 ₹
                 {statistics.totalIncome.toLocaleString("en-IN", {
-                  minimumFractionDigits: 2,
+                  minimumFractionDigits: 0,
                 })}
               </span>
             </div>
