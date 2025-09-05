@@ -40,7 +40,7 @@ const StatisticsDashboard = () => {
     return category ? category.name : "Unknown";
   };
 
-  // Seçilen ay ve yıla göre transaction'ları filtrele
+  // Seçilen ay ve yıra göre transaction'ları filtrele
   const filteredTransactions = useMemo(() => {
     if (!transactions || transactions.length === 0) return [];
 

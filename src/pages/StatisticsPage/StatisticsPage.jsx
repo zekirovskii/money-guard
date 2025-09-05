@@ -29,7 +29,7 @@ const StatisticsPage = () => {
       <Header />
       
       <div className={styles.mainContainer}>
-        {/* Left Sidebar - DashboardPage ile aynı */}
+        {/* Desktop Sidebar */}
         <aside className={styles.sidebar}>
           <Navigation />
           
@@ -46,6 +46,38 @@ const StatisticsPage = () => {
         {/* Main Content */}
         <main className={styles.mainContent}>
           <div className={styles.content}>
+            <h1 className={styles.pageTitle}>Statistics</h1>
+            <StatisticsDashboard />
+          </div>
+        </main>
+      </div>
+
+      {/* Tablet Layout - DashboardPage gibi */}
+      <div className={styles.tabletContainer}>
+        {/* Tablet için üst kısım - Navigation, Balance ve Currency */}
+        <div className={styles.topSection}>
+          <aside className={styles.sidebar}>
+            {/* Sol taraf - Navigation ve Balance */}
+            <div className={styles.leftSidebarContent}>
+              <Navigation />
+
+              {/* Balance */}
+              <div className={styles.balanceSection}>
+                <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
+                <div className={styles.balanceAmount}>₴ {totalBalance}</div>
+              </div>
+            </div>
+
+            {/* Sağ taraf - Currency */}
+            <div className={styles.currencySection}>
+              <Currency />
+            </div>
+          </aside>
+        </div>
+
+        {/* Alt kısım - Statistics Dashboard */}
+        <main className={styles.mainContent}>
+          <div className={styles.statisticsContainer}>
             <h1 className={styles.pageTitle}>Statistics</h1>
             <StatisticsDashboard />
           </div>

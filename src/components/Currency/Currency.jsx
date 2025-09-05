@@ -30,11 +30,14 @@ const Currency = () => {
 
   // Güncel kurlar (boşsa fallBack)
   const getValues = () => {
-    const find = (code) =>
-      parseFloat(
-        currencies.find((c) => c.currency === code)?.purchase ??
-          (code === "USD" ? 27.55 : 30.0)
-      );
+    const find = (code) => {
+      const currency = currencies.find((c) => c.currency === code);
+      if (currency && currency.purchase) {
+        return parseFloat(currency.purchase);
+      }
+      // Fallback değerler
+      return code === "USD" ? 41.05 : 47.90;
+    };
     return { usdValue: find("USD"), eurValue: find("EUR") };
   };
 
@@ -103,6 +106,14 @@ const Currency = () => {
     return `${top} L ${p[p.length - 1].x} ${VIEW_H} L ${p[0].x} ${VIEW_H} Z`;
   };
 
+  // Fallback veri oluştur
+  const fallbackCurrencies = [
+    { currency: "USD", purchase: "41.05", sale: "41.49" },
+    { currency: "EUR", purchase: "47.90", sale: "48.53" }
+  ];
+
+  const displayCurrencies = currencies.length > 0 ? currencies : fallbackCurrencies;
+
   if (loading) {
     return (
       <div className={styles.currencySection}>
@@ -123,28 +134,28 @@ const Currency = () => {
     <div className={styles.currencySection}>
       {/* Tablo */}
       <div className={styles.currencyTable}>
-  <div className={styles.currencyHeader}>
-    <span className={styles.hCurrency}>Currency</span>
-    <span className={styles.hCol}>Purchase</span>
-    <span className={styles.hCol}>Sale</span>
-  </div>
+        <div className={styles.currencyHeader}>
+          <span className={styles.hCurrency}>Currency</span>
+          <span className={styles.hCol}>Purchase</span>
+          <span className={styles.hCol}>Sale</span>
+        </div>
 
-  {(currencies || []).map((c, i) => {
-    const purchase = Number(c.purchase ?? 0);
-    const sale = Number(c.sale ?? 0);
-    return (
-      <div key={i} className={styles.currencyRow}>
-        <span className={styles.cellCurrency}>{c.currency}</span>
-        <span className={styles.cellCenter}>
-          {isFinite(purchase) ? purchase.toFixed(2) : "-"}
-        </span>
-        <span className={styles.cellCenter}>
-          {isFinite(sale) ? sale.toFixed(2) : "-"}
-        </span>
+        {displayCurrencies.map((c, i) => {
+          const purchase = Number(c.purchase ?? 0);
+          const sale = Number(c.sale ?? 0);
+          return (
+            <div key={i} className={styles.currencyRow}>
+              <span className={styles.cellCurrency}>{c.currency}</span>
+              <span className={styles.cellCenter}>
+                {isFinite(purchase) ? purchase.toFixed(2) : "-"}
+              </span>
+              <span className={styles.cellCenter}>
+                {isFinite(sale) ? sale.toFixed(2) : "-"}
+              </span>
+            </div>
+          );
+        })}
       </div>
-    );
-  })}
-</div>
 
       {/* Grafik */}
       <div className={styles.graphContainer}>

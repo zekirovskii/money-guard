@@ -6,12 +6,16 @@
 /* Header with Filters */
 .dashboardHeader {
   margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
 }
 
 .filters {
   display: flex;
   gap: 20px;
   justify-content: stretch;
+  position: relative;
+  z-index: 10;
 }
 
 .monthFilter,
@@ -29,6 +33,8 @@
   height: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1000;
 }
 
 .monthFilter:hover,
@@ -44,12 +50,14 @@
   outline: none;
   border-color: #4a56e2;
   box-shadow: 0 0 0 3px rgba(74, 86, 226, 0.3);
+  z-index: 1001;
 }
 
 .monthFilter option,
 .yearFilter option {
   background: #1a1a1a;
   color: white;
+  z-index: 1002;
 }
 
 /* Main Content Layout */
@@ -100,6 +108,8 @@
   flex-direction: column;
   gap: 20px;
   max-width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .transactionListTitle {
@@ -156,7 +166,6 @@
 .summaryTotals {
   margin-top: 20px;
   padding-top: 20px;
-
   margin-bottom: 30px;
 }
 
@@ -279,11 +288,20 @@
   margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 1280px) {
+/* Tablet Responsive Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .statisticsDashboard {
+    padding: 0;
+  }
+
   .dashboardContent {
     flex-direction: column;
     gap: 30px;
+    align-items: center;
+  }
+
+  .chartSection {
+    width: 100%;
     align-items: center;
   }
 
@@ -300,12 +318,29 @@
     width: 100%;
     max-height: none;
   }
+
+  .filters {
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1000;
+  }
+
+  .monthFilter,
+  .yearFilter {
+    min-width: 150px;
+    position: relative;
+    z-index: 1000;
+  }
 }
 
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
   .filters {
     flex-direction: column;
     gap: 15px;
+    position: relative;
+    z-index: 1000;
   }
 
   .chartContainer {
@@ -323,6 +358,8 @@
     height: 45px;
     padding: 12px 16px;
     font-size: 14px;
+    position: relative;
+    z-index: 1000;
   }
 }
 
