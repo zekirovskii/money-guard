@@ -69,8 +69,6 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
         amount: amount // EXPENSE için negatif, INCOME için pozitif
       };
 
-      console.log('Edit transaction data:', transactionData);
-
       await dispatch(editTransaction({
         id: transaction.id,
         updates: transactionData

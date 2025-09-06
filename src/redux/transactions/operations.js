@@ -47,8 +47,6 @@ export const addTransaction = createAsyncThunk(
     'transactions/addTransaction',
     async (transaction, { rejectWithValue }) => {
         try {
-            console.log('Gönderilen transaction data:', transaction);
-            
             // Validation
             if (!transaction.transactionDate || !transaction.type || !transaction.categoryId || !transaction.amount) {
                 return rejectWithValue('Tüm alanlar zorunludur');
@@ -96,8 +94,6 @@ export const editTransaction = createAsyncThunk(
             // if (updates.amount && updates.amount <= 0) {
             //     return rejectWithValue('Miktar 0\'dan büyük olmalıdır');
             // }
-
-            console.log('Sending edit transaction:', { id, updates });
 
             const response = await api.patch(`/transactions/${id}`, updates);
             return response.data;
