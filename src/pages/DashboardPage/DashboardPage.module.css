@@ -60,41 +60,47 @@
   z-index: 1;
 }
 
-/* Sidebar Styles */
+/* Sidebar Styles - Desktop */
 .sidebar {
-  width: 480px;
+  width: 400px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.5rem 1rem; /* Padding'i azalt */
+  padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Elemanlar arası boşluk */
+  gap: 1rem;
   position: relative;
   z-index: 2;
-  height: 100%;
+  height: calc(100vh - 80px);
+  overflow: hidden;
 }
 
 .balanceSection {
-  background: rgba(255, 255, 255, 0.08); /* Balance için background */
-  border-radius: 12px; /* Köşeleri yuvarla */
-  padding: 1.5rem; /* İç padding */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* İnce kenarlık */
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 0;
-  margin-top: 24px;
+  margin-top: 1rem;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .balanceTitle {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #a0a0a0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .balanceAmount {
-  font-size: 2.5rem; /* Biraz daha büyük */
+  font-size: 2rem;
   font-weight: 700;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -103,19 +109,21 @@
 
 .currencySection {
   margin-top: 0;
-  height: 430px;
+  height: auto;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 
 
 .currencyTable {
-  background: rgba(255, 255, 255, 0.05); /* Tablo için hafif background */
-  border-radius: 12px; /* Köşeleri yuvarla */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 1rem; /* Grafik ile arasında boşluk */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* İnce kenarlık */
-  flex-shrink: 0; /* Boyutunu koru */
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
 }
 
 .currencyHeader {
@@ -147,13 +155,14 @@
 
 .graphContainer {
   position: relative;
-  height: 281px; /* Grafik yüksekliğini artır */
-  background: rgba(255, 255, 255, 0.05); /* Grafik için hafif background */
-  border-radius: 12px; /* Köşeleri yuvarla */
+  height: auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
   overflow: hidden;
   margin-top: 0;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* İnce kenarlık */
-  flex: 1; /* Kalan alanı kapla */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1;
+  min-height: 200px;
 }
 
 .graphLine {
@@ -465,6 +474,8 @@
     flex-direction: row;
     gap: 2rem;
     align-items: flex-start;
+    height: auto; /* Tablet'te otomatik yükseklik */
+    overflow: visible; /* Tablet'te scroll'a izin ver */
   }
   
   /* Navigation ve Balance sol tarafta */
@@ -510,7 +521,8 @@
     background: rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 0px;
+    margin-top: 0px; /* Tablet'te margin-top'u sıfırla */
+    height: auto; /* Tablet'te otomatik yükseklik */
   }
   
   .balanceTitle {
@@ -625,7 +637,6 @@
     flex-direction: column;
     padding: 0.5rem;
     gap: 1rem;
-    
   }
   
   /* Üst kısım - Navigation yan yana */
@@ -647,7 +658,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
- 
+    height: auto; /* Mobilde otomatik yükseklik */
+    overflow: visible; /* Mobilde scroll'a izin ver */
   }
   
   .leftSidebarContent {
