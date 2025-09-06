@@ -41,13 +41,6 @@ const DashboardPage = () => {
     return category ? category.name : 'Unknown';
   };
 
-  // Debug
-  console.log('Dashboard Debug Info:', {
-    user,
-    transactionsCount: transactions?.length || 0,
-    totalBalance,
-  });
-
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState(null);

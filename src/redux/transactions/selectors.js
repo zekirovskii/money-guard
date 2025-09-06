@@ -48,9 +48,6 @@ export const selectBalanceAfter = createSelector(
 export const selectDebugTransactions = createSelector(
     [selectTransactions],
     (transactions) => {
-        if (transactions && transactions.length > 0) {
-            console.log('All transactions for debugging:', transactions);
-        }
         return transactions;
     }
 );

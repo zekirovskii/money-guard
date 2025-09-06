@@ -65,8 +65,6 @@ const AddTransactionModal = ({ isOpen, onClose }) => {
         amount: formData.type === "EXPENSE" ? -n : n,
       };
 
-      console.log('Gönderilen payload:', payload);
-
       await dispatch(addTransaction(payload)).unwrap();
 
       // Form'u sıfırla
