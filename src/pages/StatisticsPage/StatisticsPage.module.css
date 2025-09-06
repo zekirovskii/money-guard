@@ -61,37 +61,44 @@
 
 /* Sidebar Styles - Desktop */
 .sidebar {
-  width: 480px;
+  width: 400px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   position: relative;
   z-index: 2;
+  height: calc(100vh - 80px); /* Header yüksekliğini çıkar */
+  overflow: hidden; /* Scroll'u engelle */
 }
 
 .balanceSection {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 0;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .balanceTitle {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: #a0a0a0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .balanceAmount {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -101,16 +108,18 @@
 /* Currency Section - Desktop */
 .currencySection {
   margin-top: 0;
-  height: 430px;
+  height: auto;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 0;
 }
 
 .currencyTable {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   flex-shrink: 0;
 }
@@ -144,13 +153,14 @@
 
 .graphContainer {
   position: relative;
-  height: 281px;
+  height: auto;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   overflow: hidden;
   margin-top: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
   flex: 1;
+  min-height: 200px;
 }
 
 .graphLine {
@@ -291,12 +301,6 @@
     gap: 1rem;
   }
 
-  .topSection {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
   .sidebar {
     width: 100%;
     order: 1;
@@ -309,6 +313,8 @@
     flex-direction: row;
     gap: 2rem;
     align-items: flex-start;
+    height: auto; /* Tablet'te otomatik yükseklik */
+    overflow: visible; /* Tablet'te scroll'a izin ver */
   }
 
   .leftSidebarContent {
@@ -325,26 +331,13 @@
     height: auto;
   }
 
-  .mainContent {
-    order: 2;
-    padding: 0;
-    flex: 1;
-  }
-
-  .statisticsContainer {
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
   .balanceSection {
     margin-bottom: 0;
     padding: 1rem;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    height: auto; /* Tablet'te otomatik yükseklik */
   }
 
   .balanceTitle {
@@ -356,7 +349,6 @@
     font-size: 2rem;
   }
 
-  /* DashboardPage'den Currency CSS'leri */
   .currencyTable {
     margin-bottom: 0.75rem;
   }
@@ -374,22 +366,6 @@
   .graphContainer {
     height: 200px;
   }
-
-  .pageTitle {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: left;
-  }
-
-  .ellipse20 {
-    position: absolute;
-    top: 700px;
-    left: 100px;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 1500px;
-    z-index: 0;
-  }
 }
 
 /* Mobile Responsive Design */
@@ -404,12 +380,6 @@
     padding: 0.5rem;
   }
 
-  .topSection {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
   .sidebar {
     width: 100%;
     order: 1;
@@ -421,6 +391,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    height: auto; /* Mobilde otomatik yükseklik */
+    overflow: visible; /* Mobilde scroll'a izin ver */
   }
 
   .leftSidebarContent {
@@ -434,37 +406,5 @@
 
   .currencySection {
     display: none; /* Mobilde currency gizle */
-  }
-
-  .mainContent {
-    order: 2;
-    padding: 0;
-    flex: 1;
-  }
-
-  .statisticsContainer {
-    padding: 0;
-    background: transparent;
-    backdrop-filter: none;
-    border-radius: 0;
-    border: none;
-  }
-
-  .balanceAmount {
-    font-size: 1.5rem;
-  }
-
-  .pageTitle {
-    font-size: 1.5rem;
-  }
-
-  .ellipse20 {
-    position: absolute;
-    top: 700px;
-    left: 100px;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 1500px;
-    z-index: 0;
   }
 }
