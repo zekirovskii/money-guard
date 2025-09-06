@@ -122,8 +122,10 @@
     top: 700px;
     left: 100px;
     transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 500px;
+    width: 500px;
+      height: 1500px;
     z-index: 0;
   }
 }
+
+

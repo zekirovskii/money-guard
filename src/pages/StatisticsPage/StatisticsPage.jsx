@@ -36,11 +36,13 @@ const StatisticsPage = () => {
           {/* Balance Section */}
           <div className={styles.balanceSection}>
             <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
-            <div className={styles.balanceAmount}>₴ {totalBalance}</div>
+            <div className={styles.balanceAmount}>€ {totalBalance}</div>
           </div>
           
           {/* Currency Component - API'den veri çekiyor */}
-          <Currency />
+          <div className={styles.currencySection}>
+            <Currency />
+          </div>
         </aside>
         
         {/* Main Content */}
@@ -64,7 +66,7 @@ const StatisticsPage = () => {
               {/* Balance */}
               <div className={styles.balanceSection}>
                 <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
-                <div className={styles.balanceAmount}>₴ {totalBalance}</div>
+                <div className={styles.balanceAmount}>€ {totalBalance}</div>
               </div>
             </div>
 

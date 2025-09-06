@@ -102,18 +102,18 @@ const EditTransactionModal = ({ isOpen, onClose, transaction }) => {
           <div className={styles.formGroup}>
             <label className={styles.label}>Transaction Type</label>
             <div className={styles.editTypeDisplay}>
-              <span className={`${styles.editTypeText} ${transaction.type === 'INCOME' ? styles.active : ''}`}>
+              <span className={`${styles.editTypeText} ${formData.type === 'INCOME' ? styles.active : ''}`}>
                 Income
               </span>
               <span className={styles.editTypeSeparator}>/</span>
-              <span className={`${styles.editTypeText} ${transaction.type === 'EXPENSE' ? styles.active : ''} ${transaction.type === 'EXPENSE' ? styles.expenseType : ''}`}>
+              <span className={`${styles.editTypeText} ${formData.type === 'EXPENSE' ? styles.active : ''} ${formData.type === 'EXPENSE' ? styles.expenseType : ''}`}>
                 Expense
               </span>
             </div>
           </div>
 
-          {/* Category Selection - Sadece EXPENSE için göster, AddTransactionModal'daki gibi */}
-          {transaction.type === 'EXPENSE' && (
+          {/* Category Selection - formData.type'a göre göster */}
+          {formData.type === 'EXPENSE' && (
             <div className={styles.formGroup}>
               <label className={styles.label}>Select a category</label>
               <select

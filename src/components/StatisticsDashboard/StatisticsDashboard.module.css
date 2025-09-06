@@ -381,3 +381,170 @@
     font-size: 11px;
   }
 }
+
+/* Desktop Layout */
+.desktopLayout {
+  display: block;
+}
+
+/* Mobile Layout */
+.mobileLayout {
+  display: none;
+}
+
+/* Mobile Chart Section */
+.mobileChartSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.mobileChartContainer {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobileChartCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.mobileBalanceText {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile Filters Section */
+.mobileFiltersSection {
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.mobileFilters {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Mobile Transaction Details */
+.mobileTransactionDetails {
+  padding: 0 20px;
+}
+
+.mobileTransactionsTable {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.mobileTableHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+}
+
+.mobileTableRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mobileTableRow:last-child {
+  border-bottom: none;
+}
+
+.mobileCategory {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mobileCategoryColorBox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.mobileAmount {
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.mobileNoTransactions {
+  text-align: center;
+  padding: 40px 20px;
+  color: #a0a0a0;
+}
+
+.mobileNoTransactions p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Mobile Summary Totals */
+.mobileSummaryTotals {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileSummaryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.mobileSummaryLabel {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.mobileSummaryValue {
+  font-weight: 700;
+  font-size: 16px;
+  color: #f87171;
+}
+
+.mobileSummaryValue.mobileIncome {
+  color: #ff9f40;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .desktopLayout {
+    display: none;
+  }
+
+  .mobileLayout {
+    display: block;
+  }
+
+  .statisticsDashboard {
+    padding: 0;
+  }
+
+}

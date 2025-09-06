@@ -81,7 +81,7 @@
   padding: 1.5rem; /* İç padding */
   border: 1px solid rgba(255, 255, 255, 0.1); /* İnce kenarlık */
   margin-bottom: 0;
-  margin-top: 10px;
+  margin-top: 24px;
 }
 
 .balanceTitle {
@@ -102,7 +102,7 @@
 }
 
 .currencySection {
-  margin-top: 60px;
+  margin-top: 0;
   height: 430px;
   display: flex;
   flex-direction: column;
@@ -510,6 +510,7 @@
     background: rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0px;
   }
   
   .balanceTitle {
@@ -624,6 +625,7 @@
     flex-direction: column;
     padding: 0.5rem;
     gap: 1rem;
+    
   }
   
   /* Üst kısım - Navigation yan yana */
@@ -631,19 +633,21 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    
   }
   
   .sidebar {
     width: 100%;
     order: 1;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 0;
+    background: rgba(255, 255, 255, 0.0);
     backdrop-filter: blur(10px);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 0 solid rgba(255, 255, 255, 0.0);
     display: flex;
     flex-direction: column;
     gap: 1rem;
+ 
   }
   
   .leftSidebarContent {

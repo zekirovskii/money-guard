@@ -92,7 +92,7 @@ const DashboardPage = () => {
               {/* Balance */}
               <div className={styles.balanceSection}>
                 <h3 className={styles.balanceTitle}>YOUR BALANCE</h3>
-                <div className={styles.balanceAmount}>₴ {totalBalance}</div>
+                <div className={styles.balanceAmount}>€ {totalBalance}</div>
               </div>
             </div>
 
@@ -113,7 +113,6 @@ const DashboardPage = () => {
                 <span>Category</span>
                 <span>Comment</span>
                 <span>Sum</span>
-                <span>Actions</span>
               </div>
 
               {transactions && transactions.length > 0 ? (
@@ -203,7 +202,7 @@ const DashboardPage = () => {
                             transaction.amount >= 0 ? styles.positive : styles.negative
                           }`}
                         >
-                          ₴{Math.abs(transaction.amount)}
+                          €{Math.abs(transaction.amount)}
                         </span>
                       </div>
                       <div className={styles.mobileActions}>
