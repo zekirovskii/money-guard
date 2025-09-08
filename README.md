@@ -43,7 +43,7 @@ Built with **React, Redux Toolkit, Redux Persist, React Hook Form, Yup, Chart.js
 ![Statistics](./public/statistics.png)
 
 ### 📱 Mobile View
-![Mobile](./public/mobil.jpg)
+<img src="./public/mobil.jpg" alt="Mobile" width="300"/>
 
 ---
 
