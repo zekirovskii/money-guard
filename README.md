@@ -34,16 +34,16 @@ Built with **React, Redux Toolkit, Redux Persist, React Hook Form, Yup, Chart.js
 ## 🖼️ Screenshots
 
 ### 🔑 Login Page
-![Login](/login.png)
+![Login](./public/login.png)
 
 ### 🏠 Home Dashboard
-![Home](/home.png)
+![Home](./public/home.png)
 
 ### 📊 Statistics Page
-![Statistics](/statistics.png)
+![Statistics](./public/statistics.png)
 
 ### 📱 Mobile View
-![Mobile](/mobil.jpg)
+![Mobile](./public/mobil.jpg)
 
 ---
 
